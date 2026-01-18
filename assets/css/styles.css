@@ -339,7 +339,7 @@ a:hover { text-decoration: none; }
 .process-visual img {
   width: 100%;
   height: auto;
-  display: block; 
+  display: block;
   border-radius: var(--radius2);
   border: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.02);
@@ -372,6 +372,7 @@ a:hover { text-decoration: none; }
 .case-body h3 { margin: 0 0 6px; font-family: var(--font-head); }
 .case-body p { margin: 0 0 10px; }
 
+/* Reviews */
 .review {
   padding: 18px 16px;
   min-height: 200px;
@@ -388,12 +389,16 @@ a:hover { text-decoration: none; }
 .swiper { border-radius: var(--radius2); }
 .swiper-pagination-bullet { background: rgba(255,255,255,0.5); }
 .swiper-pagination-bullet-active { background: rgba(255,255,255,0.9); }
+
 .swiper-nav {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
   margin-top: 10px;
+  position: relative;
+  z-index: 2;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
   width: 44px;
@@ -402,8 +407,19 @@ a:hover { text-decoration: none; }
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.04);
   cursor: pointer;
+  position: static !important;
+  inset: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  color: rgba(255,255,255,0.9) !important;
 }
 
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
+}
+
+/* FAQ */
 .faq { display: grid; gap: 10px; }
 .faq-item { padding: 12px 14px; }
 .faq-item summary {
@@ -414,6 +430,7 @@ a:hover { text-decoration: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-body { margin-top: 10px; color: var(--muted); }
 
+/* Contacts */
 .contact-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -442,8 +459,11 @@ a:hover { text-decoration: none; }
   border-radius: var(--radius2);
   border: 1px solid rgba(255,255,255,0.10);
   overflow: hidden;
+  width: 100%;
+  height: auto;
 }
 
+/* Footer */
 .site-footer {
   padding: 22px 0;
   border-top: 1px solid rgba(255,255,255,0.06);
