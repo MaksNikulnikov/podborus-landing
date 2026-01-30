@@ -1,57 +1,40 @@
-(() => {
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+const yearElement = document.getElementById('year');
+if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 
-  // Mobile menu
-  const burger = document.querySelector(".burger");
-  const mobileNav = document.querySelector(".mobile-nav");
-  if (burger && mobileNav) {
-    burger.addEventListener("click", () => {
-      const isOpen = burger.getAttribute("aria-expanded") === "true";
-      burger.setAttribute("aria-expanded", String(!isOpen));
-      mobileNav.hidden = isOpen;
-    });
+const burgerButton = document.querySelector('.burger');
+const mobileNav = document.querySelector('.mobile-nav');
 
-    // Close menu on link click
-    mobileNav.querySelectorAll("a[href^='#']").forEach((a) => {
-      a.addEventListener("click", () => {
-        burger.setAttribute("aria-expanded", "false");
-        mobileNav.hidden = true;
-      });
-    });
-  }
+function setMobileNavOpen(isOpen) {
+  if (!burgerButton || !mobileNav) return;
 
-  // AOS animations (optional)
-  if (window.AOS) {
-    window.AOS.init({
-      once: true,
-      duration: 650,
-      easing: "ease-out-quart",
-      offset: 80,
-      disable: () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    });
-  }
+  burgerButton.setAttribute('aria-expanded', String(isOpen));
+  mobileNav.hidden = !isOpen;
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
 
-  // Swiper testimonials
-  if (window.Swiper) {
-    // Respect reduced motion
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function isMobileLayout() {
+  return window.matchMedia('(max-width: 980px)').matches;
+}
 
-    // eslint-disable-next-line no-new
-    new window.Swiper("#reviewsSwiper", {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 14,
-      autoplay: reduceMotion ? false : { delay: 4500, disableOnInteraction: false },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      keyboard: { enabled: true },
-      breakpoints: {
-        860: { slidesPerView: 2 }
-      }
-    });
-  }
-})();
+if (burgerButton && mobileNav) {
+  burgerButton.addEventListener('click', () => {
+    if (!isMobileLayout()) return;
+    const isOpen = burgerButton.getAttribute('aria-expanded') === 'true';
+    setMobileNavOpen(!isOpen);
+  });
+
+  mobileNav.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.tagName.toLowerCase() !== 'a') return;
+    setMobileNavOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobileLayout()) {
+      setMobileNavOpen(false);
+    } else {
+      setMobileNavOpen(false);
+    }
+  });
+}
