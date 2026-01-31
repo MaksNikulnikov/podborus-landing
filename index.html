@@ -44,14 +44,23 @@
         "url": "https://podborus.ru/",
         "description": "Высокотехнологичный подбор кадров по России: подбор персонала, HR-консалтинг, HR-автоматизация.",
         "areaServed": "RU",
-        "telephone": "+7-925-880-37-47",
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "telephone": "+7-925-880-37-47",
-          "contactType": "sales",
-          "areaServed": "RU",
-          "availableLanguage": ["ru"]
-        }],
+        "telephone": ["+7-925-880-37-47", "+7-977-629-88-63"],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+7-925-880-37-47",
+            "contactType": "sales",
+            "areaServed": "RU",
+            "availableLanguage": ["ru"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+7-977-629-88-63",
+            "contactType": "sales",
+            "areaServed": "RU",
+            "availableLanguage": ["ru"]
+          }
+        ],
         "sameAs": ["https://t.me/Podborus"]
       }
     </script>
@@ -67,9 +76,14 @@
           <span class="brand-text">Podborus</span>
         </a>
 
-        <a class="header-phone" href="tel:+79258803747" aria-label="Позвонить +7 925 880 37 47">
-          +7 (925) 880-37-47
-        </a>
+        <div class="header-phones" aria-label="Телефоны">
+          <a class="header-phone" href="tel:+79258803747" aria-label="Позвонить +7 925 880 37 47">
+            +7 (925) 880-37-47
+          </a>
+          <a class="header-phone" href="tel:+79776298863" aria-label="Позвонить +7 977 629 88 63">
+            +7 (977) 629-88-63
+          </a>
+        </div>
 
         <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -107,6 +121,7 @@
                 Telegram
               </a>
               <a class="btn btn-ghost" href="tel:+79258803747">Позвонить</a>
+              <a class="btn btn-ghost" href="tel:+79776298863">Позвонить</a>
             </div>
           </div>
 
@@ -410,6 +425,7 @@
             <div class="contacts-card">
               <p class="contacts-line">Telegram: <a href="https://t.me/Podborus" target="_blank" rel="noreferrer">@Podborus</a></p>
               <p class="contacts-line"><a href="tel:+79258803747">+7&nbsp;(925)&nbsp;880-37-47</a></p>
+              <p class="contacts-line"><a href="tel:+79776298863">+7&nbsp;(977)&nbsp;629-88-63</a></p>
             </div>
 
             <figure class="qr">

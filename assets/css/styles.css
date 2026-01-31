@@ -97,10 +97,60 @@ a:hover { text-decoration: none; }
   letter-spacing: 0.01em;
 }
 
+.header-phones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .header-phone {
   font-weight: 600;
   font-size: 16px;
   color: rgba(255,255,255,0.86);
+  white-space: nowrap;
+}
+
+.header-phone:hover {
+  color: rgba(255,255,255,0.94);
+}
+
+.header-phone + .header-phone {
+  position: relative;
+  padding-left: 14px;
+}
+
+.header-phone + .header-phone::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 18px;
+  border-radius: 1px;
+  background: rgba(255,255,255,0.14);
+}
+
+@media (max-width: 1180px) {
+  .header-phones {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .header-phone {
+    font-size: 14px;
+  }
+
+  .header-phone + .header-phone {
+    padding-left: 0;
+  }
+
+  .header-phone + .header-phone::before {
+    display: none;
+  }
 }
 
 .burger {
