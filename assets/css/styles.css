@@ -813,3 +813,121 @@ a:hover { text-decoration: none; }
     font-size: 28px;
   }
 }
+
+
+/* Articles */
+.slide-actions{
+  margin-top:14px;
+  display:flex;
+}
+
+.articles-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.article-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  padding:22px 22px 20px;
+  border:1px solid rgba(255,255,255,0.10);
+  background:
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)) padding-box,
+    linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 100%) border-box;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 22px 80px rgba(0,0,0,0.55);
+}
+
+.article-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  pointer-events:none;
+  background:
+    radial-gradient(820px 420px at 100% 100%, rgba(50,21,118,0.90) 0%, rgba(50,21,118,0.00) 62%),
+    radial-gradient(140px 140px at 10% 9%, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.18) 28%, rgba(255,255,255,0.00) 62%);
+  opacity:1;
+}
+
+.article-card__title{
+  position:relative;
+  z-index:1;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  font-size:18px;
+  line-height:1.2;
+  color:rgba(255,255,255,0.92);
+}
+
+.article-card__meta{
+  position:relative;
+  z-index:1;
+  margin-top:10px;
+  font-size:13px;
+  color:rgba(255,255,255,0.70);
+}
+
+.articles-actions{
+  margin-top:18px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+.article-group h2{
+  margin: 26px 0 14px;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+  color: rgba(255,255,255,0.86);
+}
+
+.breadcrumbs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  color: rgba(255,255,255,0.65);
+  font-size: 13px;
+}
+.breadcrumbs a{ color: rgba(255,255,255,0.82); }
+.breadcrumbs a:hover{ color: rgba(255,255,255,0.92); }
+
+.article{
+  max-width: 920px;
+}
+.article h1{
+  margin: 0 0 18px;
+  font-size: clamp(28px, 3.0vw, 48px);
+  letter-spacing: -0.03em;
+  font-weight: 900;
+}
+.article h2{
+  margin: 26px 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+.article p{
+  margin: 10px 0;
+  color: rgba(255,255,255,0.78);
+}
+.article ul{
+  margin: 10px 0 10px 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.80);
+}
+.article li{ margin: 8px 0; }
+
+.article-cta{
+  margin-top: 26px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+@media (max-width: 980px){
+  .articles-grid{ grid-template-columns:1fr; }
+}
